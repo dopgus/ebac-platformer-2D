@@ -63,8 +63,6 @@ public class Player : MonoBehaviour
             animator.SetBool(boolRun, false);
         }
 
-        Debug.Log(myRigidbody.velocity);
-
         if(myRigidbody.velocity.x > 0)
         {
             myRigidbody.velocity += friction;
