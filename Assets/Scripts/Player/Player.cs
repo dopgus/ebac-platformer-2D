@@ -43,18 +43,18 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             myRigidbody.velocity = new Vector2(-_currentSpeed, myRigidbody.velocity.y);
-            if(myRigidbody.transform.localScale.x != -1)
+            if(myRigidbody.transform.localScale.x != -2)
             {
-                myRigidbody.transform.DOScaleX(-1, playerSwipeDuration);
+                myRigidbody.transform.DOScaleX(-2, playerSwipeDuration);
             }
             animator.SetBool(boolRun, true);
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
             myRigidbody.velocity = new Vector2(_currentSpeed, myRigidbody.velocity.y);
-            if (myRigidbody.transform.localScale.x != 1)
+            if (myRigidbody.transform.localScale.x != 2)
             {
-                myRigidbody.transform.DOScaleX(1, playerSwipeDuration);
+                myRigidbody.transform.DOScaleX(2, playerSwipeDuration);
             }
                 animator.SetBool(boolRun, true);
         }
