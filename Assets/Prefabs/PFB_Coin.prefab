@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 5599355550043885617}
   - component: {fileID: 7359680414350755334}
   - component: {fileID: 1969051587364057425}
+  - component: {fileID: 1909823848683727735}
   m_Layer: 0
   m_Name: PFB_Coin
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   compareTag: Player
+  text: {fileID: 0}
 --- !u!58 &1969051587364057425
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -62,6 +64,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.3
+--- !u!114 &1909823848683727735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5599355550043885618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77f8791d7e29c574b9333b7b17b9f9ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinValue: 0
 --- !u!1 &7661160797239288315
 GameObject:
   m_ObjectHideFlags: 0
