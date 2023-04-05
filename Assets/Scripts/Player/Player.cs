@@ -22,11 +22,29 @@ public class Player : MonoBehaviour
 
     [Header("Animation player")]
     public string boolRun = "Run";
+    public string triggerDeath = "Death";
     public Animator animator;
     public float playerSwipeDuration = .1f;
 
     private float _currentSpeed;
     private bool _isRunning = false;
+
+    public HealthBase healthBase;
+
+    private void Awake()
+    {
+        if(healthBase != null)
+        {
+            healthBase.OnKill += OnPlayerKill;
+        }
+    }
+
+    private void OnPlayerKill()
+    {
+        healthBase.OnKill -= OnPlayerKill;
+
+        animator.SetTrigger(triggerDeath);
+    }
 
     private void Update()
     {
@@ -72,6 +90,12 @@ public class Player : MonoBehaviour
             myRigidbody.velocity -= friction;
         }
     }
+
+    public void DestroyMe()
+    {
+        Destroy(gameObject);
+    }
+
     private void HandleJump()
     {
         if (Input.GetKeyDown(KeyCode.Space))
