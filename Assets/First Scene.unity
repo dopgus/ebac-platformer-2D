@@ -309,7 +309,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: PFB_Coin (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7359680414350755334, guid: e7b7ecc52ee9f5f488c315a89690472f, type: 3}
+      propertyPath: text
+      value: 
+      objectReference: {fileID: 1272831747}
+    m_RemovedComponents:
+    - {fileID: 1909823848683727735, guid: e7b7ecc52ee9f5f488c315a89690472f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e7b7ecc52ee9f5f488c315a89690472f, type: 3}
 --- !u!1 &59194562
 GameObject:
@@ -817,7 +822,9 @@ MonoBehaviour:
   damage: 10
   animator: {fileID: 228511199}
   triggerAttack: Attack
+  triggerKill: Death
   healthBase: {fileID: 228511203}
+  timeToDestroy: 1
 --- !u!61 &228511201
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -877,10 +884,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4821ae0f89569db4fadee4fdc460f702, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startLife: 10
-  destroyOnKill: 1
+  startLife: 3
+  destroyOnKill: 0
   delayToKill: 0
-  flashColor: {fileID: 0}
+  _flashColor: {fileID: 0}
 --- !u!114 &228511204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1152,7 +1159,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: PFB_Coin (5)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7359680414350755334, guid: e7b7ecc52ee9f5f488c315a89690472f, type: 3}
+      propertyPath: text
+      value: 
+      objectReference: {fileID: 1272831747}
+    m_RemovedComponents:
+    - {fileID: 1909823848683727735, guid: e7b7ecc52ee9f5f488c315a89690472f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e7b7ecc52ee9f5f488c315a89690472f, type: 3}
 --- !u!1 &449883373
 GameObject:
@@ -2369,11 +2381,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8073972946613542793, guid: 3de838754c767a446a5473969062a84e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -29.4
+      value: -28
       objectReference: {fileID: 0}
     - target: {fileID: 8073972946613542793, guid: 3de838754c767a446a5473969062a84e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8073972946613542793, guid: 3de838754c767a446a5473969062a84e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3018,8 +3030,6 @@ GameObject:
   - component: {fileID: 958059498}
   - component: {fileID: 958059502}
   - component: {fileID: 958059503}
-  - component: {fileID: 958059500}
-  - component: {fileID: 958059504}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -3074,17 +3084,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.2666698, y: 3.3166113}
   m_EdgeRadius: 0
---- !u!210 &958059500
-SortingGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 958059497}
-  m_Enabled: 1
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 15
 --- !u!4 &958059501
 Transform:
   m_ObjectHideFlags: 0
@@ -3122,8 +3121,10 @@ MonoBehaviour:
   animationDuration: 0
   ease: 27
   boolRun: Run
+  triggerDeath: Death
   animator: {fileID: 726600832}
   playerSwipeDuration: 0.2
+  healthBase: {fileID: 958059503}
 --- !u!114 &958059503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3137,43 +3138,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startLife: 10
-  destroyOnKill: 1
-  delayToKill: 0
-  flashColor: {fileID: 0}
---- !u!114 &958059504
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 958059497}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9793fbcc633f42845908f1a93f847ae5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteRenderers:
-  - {fileID: 1086772449}
-  - {fileID: 1015832169}
-  - {fileID: 875048120}
-  - {fileID: 81036738}
-  - {fileID: 1822611090}
-  - {fileID: 1973335991}
-  - {fileID: 1463317929}
-  - {fileID: 966248692}
-  - {fileID: 173456695}
-  - {fileID: 360140185}
-  - {fileID: 144135848}
-  - {fileID: 1338534047}
-  - {fileID: 1433495786}
-  - {fileID: 577579275}
-  - {fileID: 1082556830}
-  - {fileID: 1155097357}
-  - {fileID: 1152967255}
-  - {fileID: 731058488}
-  - {fileID: 1951307439}
-  color: {r: 0.9528302, g: 0.45304376, b: 0.45304376, a: 1}
-  duration: 0.1
+  destroyOnKill: 0
+  delayToKill: 1
+  _flashColor: {fileID: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -3357,8 +3324,76 @@ PrefabInstance:
       propertyPath: m_Name
       value: PFB_Coin (3)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7359680414350755334, guid: e7b7ecc52ee9f5f488c315a89690472f, type: 3}
+      propertyPath: text
+      value: 
+      objectReference: {fileID: 1272831747}
+    m_RemovedComponents:
+    - {fileID: 1909823848683727735, guid: e7b7ecc52ee9f5f488c315a89690472f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e7b7ecc52ee9f5f488c315a89690472f, type: 3}
+--- !u!1 &1031643097 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8835229685202505509, guid: 00afc9fb4087652419d090da0b825d97, type: 3}
+  m_PrefabInstance: {fileID: 1095396014}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1031643098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031643097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d64f2cc3c0e142443b23c2aec0ced3b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 958059502}
+--- !u!114 &1031643099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031643097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9793fbcc633f42845908f1a93f847ae5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderers:
+  - {fileID: 1086772449}
+  - {fileID: 1015832169}
+  - {fileID: 875048120}
+  - {fileID: 81036738}
+  - {fileID: 1822611090}
+  - {fileID: 1973335991}
+  - {fileID: 1463317929}
+  - {fileID: 966248692}
+  - {fileID: 173456695}
+  - {fileID: 360140185}
+  - {fileID: 144135848}
+  - {fileID: 1338534047}
+  - {fileID: 1433495786}
+  - {fileID: 577579275}
+  - {fileID: 1082556830}
+  - {fileID: 1155097357}
+  - {fileID: 1152967255}
+  - {fileID: 731058488}
+  - {fileID: 1951307439}
+  color: {r: 0.9150943, g: 0.40920252, b: 0.40920252, a: 1}
+  duration: 0.3
+--- !u!210 &1031643100
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031643097}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 15
 --- !u!4 &1038855512 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8073972946613542793, guid: 3de838754c767a446a5473969062a84e, type: 3}
@@ -3785,7 +3820,9 @@ MonoBehaviour:
   damage: 10
   animator: {fileID: 0}
   triggerAttack: Attack
+  triggerKill: Kill
   healthBase: {fileID: 0}
+  timeToDestroy: 1
 --- !u!50 &1197689337
 Rigidbody2D:
   serializedVersion: 4
@@ -4204,7 +4241,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: x 18
+  m_text: x 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4631,7 +4668,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1488839044}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.277852, y: -12.8, z: -9.152069}
+  m_LocalPosition: {x: 1.3, y: -22.09, z: -9.152069}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1942168891}
@@ -4709,7 +4746,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: PFB_Coin (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7359680414350755334, guid: e7b7ecc52ee9f5f488c315a89690472f, type: 3}
+      propertyPath: text
+      value: 
+      objectReference: {fileID: 1272831747}
+    m_RemovedComponents:
+    - {fileID: 1909823848683727735, guid: e7b7ecc52ee9f5f488c315a89690472f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e7b7ecc52ee9f5f488c315a89690472f, type: 3}
 --- !u!1 &1517978698
 GameObject:
@@ -5092,7 +5134,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: PFB_Coin (4)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7359680414350755334, guid: e7b7ecc52ee9f5f488c315a89690472f, type: 3}
+      propertyPath: text
+      value: 
+      objectReference: {fileID: 1272831747}
+    m_RemovedComponents:
+    - {fileID: 1909823848683727735, guid: e7b7ecc52ee9f5f488c315a89690472f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e7b7ecc52ee9f5f488c315a89690472f, type: 3}
 --- !u!1 &1639684733
 GameObject:
@@ -5578,7 +5625,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77f8791d7e29c574b9333b7b17b9f9ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coins: 0
+  coinValue: 0
 --- !u!4 &1760650245
 Transform:
   m_ObjectHideFlags: 0
@@ -6001,6 +6048,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1488839045}
     m_Modifications:
+    - target: {fileID: 1909823848683727735, guid: e7b7ecc52ee9f5f488c315a89690472f, type: 3}
+      propertyPath: coinValue
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5599355550043885617, guid: e7b7ecc52ee9f5f488c315a89690472f, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -6049,5 +6100,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PFB_Coin
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7359680414350755334, guid: e7b7ecc52ee9f5f488c315a89690472f, type: 3}
+      propertyPath: text
+      value: 
+      objectReference: {fileID: 1272831747}
+    m_RemovedComponents:
+    - {fileID: 1909823848683727735, guid: e7b7ecc52ee9f5f488c315a89690472f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e7b7ecc52ee9f5f488c315a89690472f, type: 3}
