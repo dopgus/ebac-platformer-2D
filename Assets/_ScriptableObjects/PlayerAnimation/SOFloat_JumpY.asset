@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 425f2779326cf9f4a8f18c13f399678b, type: 3}
   m_Name: SOFloat_JumpY
   m_EditorClassIdentifier: 
-  value: 0
+  value: 1.1
