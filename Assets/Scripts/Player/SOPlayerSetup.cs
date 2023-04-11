@@ -7,12 +7,15 @@ using DG.Tweening;
 public class SOPlayerSetup : ScriptableObject
 {
     public Animator player;
+    public SOString soStringName;
 
     [Header("Speed setup")]
     public Vector2 friction = new Vector2(.1f, 0);
     public float speed;
     public float speedRun;
     public float forceJump = 2;
+    public float ScaleX = 0.57f;
+    public float ScaleY = 0.57f; 
 
     [Header("Animation setup")]
     /*public float jumpScaleY = 1.5f;
