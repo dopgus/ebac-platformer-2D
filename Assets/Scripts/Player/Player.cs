@@ -9,13 +9,31 @@ public class Player : MonoBehaviour
     public Rigidbody2D myRigidbody;
     public HealthBase healthBase;
 
-    [Header("Setup")]
+    [Header("Speed setup")]
+    public Vector2 friction = new Vector2(.1f, 0);
+    public float speed;
+    public float speedRun;
+    public float forceJump = 2;
+
+    [Header("Animation setup")]
+    /*public float jumpScaleY = 1.5f;
+    public float jumpScaleX = 0.7f;
+    public float animationDuration = .3f;*/
+    public Ease ease = Ease.OutBack;
+
+    [Header("Animation player")]
+    public string boolRun = "Run";
+    public string triggerDeath = "Death";
+    public float playerSwipeDuration = .1f;
+  
     public SOPlayerSetup soPlayerSetup;
 
-    public Animator animator;
+    //public Animator animator;
 
     private float _currentSpeed;
     private bool _isRunning = false;
+
+    private Animator _currentPlayer;
 
     private void Awake()
     {
@@ -23,13 +41,14 @@ public class Player : MonoBehaviour
         {
             healthBase.OnKill += OnPlayerKill;
         }
+      _currentPlayer = Instantiate(soPlayerSetup.player, transform);
     }
 
     private void OnPlayerKill()
     {
         healthBase.OnKill -= OnPlayerKill;
 
-        animator.SetTrigger(soPlayerSetup.triggerDeath);
+        _currentPlayer.SetTrigger(soPlayerSetup.triggerDeath);
     }
 
     private void Update()
@@ -51,7 +70,7 @@ public class Player : MonoBehaviour
             {
                 myRigidbody.transform.DOScaleX(-2, soPlayerSetup.playerSwipeDuration);
             }
-            animator.SetBool(soPlayerSetup.boolRun, true);
+            _currentPlayer.SetBool(soPlayerSetup.boolRun, true);
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
@@ -60,11 +79,11 @@ public class Player : MonoBehaviour
             {
                 myRigidbody.transform.DOScaleX(2, soPlayerSetup.playerSwipeDuration);
             }
-                animator.SetBool(soPlayerSetup.boolRun, true);
+                _currentPlayer.SetBool(soPlayerSetup.boolRun, true);
         }
         else
         {
-            animator.SetBool(soPlayerSetup.boolRun, false);
+            _currentPlayer.SetBool(soPlayerSetup.boolRun, false);
         }
 
         if(myRigidbody.velocity.x > 0)

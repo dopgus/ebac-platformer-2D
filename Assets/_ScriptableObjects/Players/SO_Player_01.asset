@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70c4b84ed07db5a46bf8b56cfbff4db8, type: 3}
   m_Name: SO_Player_01
   m_EditorClassIdentifier: 
-  friction: {x: 0.1, y: 0}
-  speed: 0
-  speedRun: 0
-  forceJump: 2
+  player: {fileID: 6413013834153556191, guid: 00afc9fb4087652419d090da0b825d97, type: 3}
+  friction: {x: -0.3, y: 0}
+  speed: 11
+  speedRun: 11
+  forceJump: 9
   ease: 27
   boolRun: Run
   triggerDeath: Death
