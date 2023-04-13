@@ -25,7 +25,8 @@ public class Player : MonoBehaviour
         {
             healthBase.OnKill += OnPlayerKill;
         }
-      _currentPlayer = Instantiate(soPlayerSetup.player, transform);
+        _currentPlayer = Instantiate(soPlayerSetup.player, transform);
+        _currentPlayer.GetComponentInChildren<GunBase>().playerSideReference = transform;
     }
 
     private void OnPlayerKill()
