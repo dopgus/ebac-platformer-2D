@@ -54,6 +54,7 @@ MonoBehaviour:
   graphicItem: {fileID: 7661160797239288315}
   audioSource: {fileID: 6458374762176389205}
   text: {fileID: 0}
+  collider: {fileID: 1969051587364057425}
 --- !u!58 &1969051587364057425
 CircleCollider2D:
   m_ObjectHideFlags: 0

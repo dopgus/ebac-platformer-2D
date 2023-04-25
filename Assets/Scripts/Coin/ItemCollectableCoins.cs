@@ -8,6 +8,7 @@ public class ItemCollectableCoins : CollectableBase
     public static ItemCollectableCoins instance;
     public TextMeshProUGUI text;
     int score;
+    public Collider2D collider;
 
     void Start()
     {
@@ -21,6 +22,7 @@ public class ItemCollectableCoins : CollectableBase
     {
         base.OnCollect();
         ItemManager.Instance.AddCoins();
+        collider.enabled = false;
     }
 
     public void ChangeScore(int coinValue)
